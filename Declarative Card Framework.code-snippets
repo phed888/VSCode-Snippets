@@ -1,0 +1,283 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log(\"$1\");",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"DCF_Template": {
+		"scope": "json",
+		"prefix": "dcf-template",
+		"body": [
+			"{",
+				"\t\"messageType\": \"DECLARATIVE_CARDS\",",
+				"\t\"version\": \"2.0.0\",",
+				"\t\"cards\": [",
+					"\t\t{",
+						"\t\t\t\"elements\": [",
+						"\t\t\t\t${1}",
+						"\t\t\t]",
+					"\t\t}",
+				"\t]",
+			"}",
+		],
+	},
+	"DCF_GridGroup": {
+		"scope": "json",
+		"prefix": "dcf-gridgroup",
+		"body": [
+			"{",
+				"\t\"type\": \"GridGroup\",",
+				"\t\"params\": {",
+					"\t\t\"columnSize\": ${1|1,2,3,4,6,8,12|},",
+					"\t\t\"isFixedToBottom\": ${2|true,false|},",
+					"\t\t\"direction\": \"${3|column,column-reverse,row,row-reverse|}\",",
+				"\t},",
+				"\t\"items\": [",
+					"\t\t${4}",
+				"\t],",
+			"}",
+		],
+	},
+	"DCF_InlineGroup": {
+		"scope": "json",
+		"prefix": "dcf-inlinegroup",
+		"body": [
+			"{",
+				"\t\"type\": \"InlineGroup\",",
+				"\t\"params\": {",
+					"\t\t\"isFixedToBottom\": ${2|true,false|},",
+					"\t\t\"direction\": \"${3|column,column-reverse,row,row-reverse|}\",",
+				"\t},",
+				"\t\"items\": [",
+					"\t\t${4}",
+				"\t],",
+			"}",
+		],
+	},
+	"DCF_TextBlock": {
+		"scope": "json",
+		"prefix": "dcf-tb",
+		"body": [
+			"{",
+				"\t\"type\": \"TextBlock\",",
+				"\t\"value\": \"${1}\",",
+				"\t\"params\":{",
+				"\t\t\"colSpan\": ${2|1,2,3,4,5,6,7,8,9,10,11,12,\"all\"|},",
+				"\t\t\"textType\":\"${3|default,heading|}\",",
+				"\t\t\"keyWords\": [${4}],",
+				"\t}",
+			"}"	
+		]
+	},
+	"DCF_Icon": {
+		"scope": "json",
+		"prefix": "dcf-icon",
+		"body": [
+			"{",
+				"\t\"type\": \"Icon\",",
+				"\t\"value\": \"${1:Icon name goes here}\",",
+				"\t\"params\": {",
+				"\t\t${2}",
+				"\t}",
+			"}"
+		]
+	},
+	"DCF_Image": {
+		"scope": "json",
+		"prefix": "dcf-image",
+		"body": [
+			"{",
+				"\t\"type\": \"Image\",",
+				"\t\"value\": \"https://${1:Image URL goes here}\",",
+				"\t\"text\": ${2:Icon alt text goes here}",
+			"}"
+		]
+	},
+	"DCF_Rating": {
+		"scope": "json",
+		"prefix": "dcf-rating",
+		"body": [
+			"{",
+				"\t\"type\": \"Rating\",",
+				"\t\"value\": \"${1|1,1.5,2,2.5,3,3.5,4,4.5,5|}\",",
+				"\t\"text\": \"(${1})\",",
+				"\t\"params\": {",
+				"\t\t${2}",
+				"\t}",
+			"}"
+		]
+	},
+	"DCF_Tracker": {
+		"scope": "json",
+		"prefix": "dcf-tracker",
+		"body": [
+			"{",
+				"\t\"type\": \"Tracker\",",
+				"\t\"items\": [",
+				"\t\t${1:Type ctrl + space and select trackerItem}",
+				"\t]",
+			"}"
+		]
+	},
+	"DCF_TrackerItem": {
+		"scope": "json",
+		"prefix": "dcf-trackerItem",
+		"body": [
+			"{",
+				"\t\"value\": \"${1|notStarted,inProgress,complete|}\",",
+				"\t\"params\": {",
+				"\t\t\"text\":\"${2:Step text goes here}\",",
+				"\t\t\"subText\":\"${3:subText goes here}\"",
+				"\t}",
+			"}"		
+		]
+	},
+	"DCF_moreInfo": {
+		"scope": "json",
+		"prefix": "dcf-moreInfo",
+		"body": [
+			"{",
+				"\t\"type\": \"MoreInfoTrigger\",",
+				"\t\"text\": \"${1:Add title here}\",",
+				"\t\"params\": {",
+				"\t\t\"iconName\": \"${2:info}\",",
+				"\t\t\"iconSize\": \"${3|MEDIUM,EXTRASMALL,SMALL,MEDIUMLARGE,LARGE|}\",",
+				"\t\t\"iconDescription\": \"${4:description}\",",
+				"\t\t${5}",
+				"\t},",
+				"\t\"items\":[",
+				"\t\t{",
+				"\t\t\t\"type\":\"TextBlock\",",
+				"\t\t\t\"value\":\"${6:more info}\"",
+				"\t\t}",
+				"\t]",
+			"}"
+		]
+	},
+	"DCF_button": {
+		"scope": "json",
+		"prefix": "dcf-button",
+		"body": [
+			"{",
+			"\t\"type\":\"Button\",",
+			"\t\"value\": \"${1|PRIMARY, SECONDARY|}\",",
+			"\t\"text\":\"${2:button label}\",",
+			"\t\"items\": [",
+			"\t\t{",
+			"\t\t\t\"type\":\"Icon\",",
+			"\t\t\t\"value\":\"${3:icon name}\"",
+			"\t\t}",
+			"\t],",
+			"\t\"params\": {",
+			"\t\t\"isFullWidth\": ${4|true,false|},",
+			"\t\t\"size\":\"${5|SMALL,MEDIUM,LARGE|}\"",
+			"\t\t\"url\":\"${6:\"www.expedia.com\"}\"",
+			"\t\t\"window\":\"${7|new,same|}\"",
+			"\t}",
+			"}"
+		]
+	},
+	"DCF_param-size":{
+		"scope": "json",
+		"prefix": "dcp-size",
+		"body": [
+			"\"size\": \"${1|100,200,300,400,500,600,700,800,900|}\""
+		]
+	},
+	"DCF_param-textSize":{
+		"scope": "json",
+		"prefix": "dcp-textSize",
+		"body": [
+			"\"textSize\": \"${1|100,200,300,400,500,600,700,800,900|}\""
+		]
+	},
+	"DCF_param-textType": {
+		"scope": "json",
+		"prefix": "dcp-textType",
+		"body": [
+			"\"textType\": \"${1|\"default\",\"heading\"|}"
+		]
+	},
+	"DCF_param-overflow": {
+		"scope": "json",
+		"prefix": "dcp-overflow",
+		"body": [
+			"\"overflow\": ${1|\"truncate\",\"truncate-2-lines\",\"truncate-3-lines\",\"wrap\"|}"
+		]
+	},
+	"DCF_param-weight": {
+		"scope": "json",
+		"prefix": "dcp-weight",
+		"body": [
+			"\"weight\": ${1|\"regular\",\"medium\",\"bold\"|}"
+		]
+	},
+	"DCF_param-inline": {
+		"scope": "json",
+		"prefix": "dcp-inline",
+		"body": [
+			"\"inline\": ${1|\"true\",\"false\"|}"
+		]
+	},
+	"DCF_param-align": {
+		"scope": "json",
+		"prefix": "dcp-overflow",
+		"body": [
+			"\"overflow\": ${1|\"left\",\"center\",\"right\"|}"
+		]
+	},
+	"DCF_param-whiteSpace": {
+		"scope": "json",
+		"prefix": "dcp-wspace",
+		"body": [
+			"\"whiteSpace\": ${1|\"break-spaces\",\"normal\",\"nowrap\",\"pre\",\"pre-line\",\"pre-wrap\"|}"
+		]
+	},
+	"DCF_param-level": {
+		"scope": "json",
+		"prefix": "dcp-level",
+		"body": [
+			"\"level\": ${1|1,2,3,4,5,6|}"
+		]
+	},
+	"DCF_param-hyphens": {
+		"scope": "json",
+		"prefix": "dcp-hyphens",
+		"body": [
+			"\"hyphens\": ${1|\"auto\",\"manual\",\"none\"|}"
+		]
+	},
+	"DCF_param-border": {
+		"scope": "json",
+		"prefix": "dcp-border",
+		"body": [
+			"\"border\": [${1|\"inlinestart\",\"inlineend\",\"blockstart\",\"blockend\",\"block\",\"inline\"|}]"
+		]
+	},
+	"DCF_param-margin": {
+		"scope": "json",
+		"prefix": "dcp-margin",
+		"body": [
+			"\"margin\": {${1|\"inlinestart\",\"inlineend\",\"blockstart\",\"blockend\",\"block\",\"inline\"|}:${2|\"zero\",\"half\",\"one\",\"two\",\"three\",\"four\",\"six\",\"twelve\"|}}"
+		]
+	},
+	"DCF_param-padding": {
+		"scope": "json",
+		"prefix": "dcp-padding",
+		"body": [
+			"\"padding\": {${1|\"inlinestart\",\"inlineend\",\"blockstart\",\"blockend\",\"block\",\"inline\"|}:${2|\"zero\",\"half\",\"one\",\"two\",\"three\",\"four\",\"six\",\"twelve\"|}}"
+		]
+	},
+
+}
